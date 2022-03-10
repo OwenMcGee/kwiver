@@ -594,13 +594,14 @@ track_features::
 add_command_options()
 {
   m_cmd_options->custom_help( wrap_text(
-    "[options] video-file [track-file]\n"
+    "[options] video-file [tracks-file]\n"
     "This program tracks feature point through a video or list of images and "
     "produces a track file and optional homography sequence.") );
 
-  m_cmd_options->positional_help("\n  video-file  - name of input video file."
-                                 "\n  track-file  - name of output track file "
-                                 "(default: " + d->track_file + ")");
+  m_cmd_options->positional_help("\n  video-file   - Name of input video file."
+                                 "\n  tracks-file  - Name of output tracks file "
+                                 "(default: " + d->track_file + ")"
+  );
 
   m_cmd_options->add_options()
     ( "h,help",     "Display applet usage" )

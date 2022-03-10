@@ -33,7 +33,7 @@ pipe_config
     wrap_text( "[options] pipe-file\n"
                "This program configures the specified pipeline file." ) );
 
-  m_cmd_options->positional_help( "\n  pipe-file  - name of pipeline file." );
+  m_cmd_options->positional_help( "\n  pipe-file  - Name of pipeline file." );
 
   m_cmd_options->add_options()( "h,help", "Display applet usage" );
 

@@ -125,6 +125,11 @@ public:
   int frame_sampling_ = 1;
   bool all_frames_ = false;
 
+  kv::path_t  input_mesh_file = "results/mesh.vtp";
+  kv::path_t  input_cameras_directory = "results/krtd";
+  kv::path_t  output_mesh_file = "results/colored_mesh.vtp";
+  kv::path_t  input_geo_origin_file = "results/geo_origin.txt";
+
   enum commandline_mode { SUCCESS, HELP, WRITE, FAIL };
 
   commandline_mode process_command_line(cxxopts::ParseResult& cmd_args)
@@ -600,34 +605,37 @@ add_command_options()
     "a list of camera files stored in a directory. A mesh colored with "
     "the average color or with a color for a particular camera is produced.") );
 
-  m_cmd_options->positional_help("\n  input-mesh  - input mesh file."
-                                 "\n  video-file  - input video file."
-                                 "\n  cameras-dir  - input camera directory."
-                                 "\n  output-mesh - output mesh file."
+  m_cmd_options->positional_help("\n  input-mesh   - Name of input mesh file "
+                                 "(default: " + d->input_mesh_file + ")"
+                                 "\n  video-file   - Name of input video file"
+                                 "\n  cameras-dir  - Name of input cameras directory "
+                                 "(default: " + d->input_cameras_directory + ")"
+                                 "\n  output-mesh  - Name of output mesh file "
+                                 "(default: " + d->output_mesh_file + ")"
   );
 
   m_cmd_options->add_options()
-    ( "a,all-frames",
-      "Compute average color or save each frame color",
-      cxxopts::value<bool>()->default_value("false") )
+    ( "h,help",     "Display applet usage" )
     ( "c,config",
       "Configuration file for tool",
       cxxopts::value<std::string>() )
-    ( "f,frame",
-      "Frame index to use for coloring. "
-      "If -1 use an average color for all frames.",
-      cxxopts::value<int>()->default_value( "-1"))
-    ( "g,input-geo-origin-file", "Input geographic origin file.",
-      cxxopts::value<std::string>() )
-    ( "h,help",     "Display applet usage" )
-    ( "m,mask-file",
-      "An input mask video or list of mask images to indicate "
-      "which pixels to ignore.",
-      cxxopts::value<std::string>())
     ( "o,output-config",
       "Output a configuration. This may be seeded with a "
       "configuration file from -c/--config.",
       cxxopts::value<std::string>() )
+    ( "a,all-frames",
+      "Compute average color or save each frame color",
+      cxxopts::value<bool>()->default_value("false") )
+    ( "f,frame",
+      "Frame index to use for coloring. "
+      "If -1 use an average color for all frames.",
+      cxxopts::value<int>()->default_value( "-1"))
+    ( "g,geo-origin-file", "Name of input geographic origin file.",
+      cxxopts::value<std::string>()->default_value( d->input_geo_origin_file ) )
+    ( "m,mask-file",
+      "An input mask video or list of mask images to indicate "
+      "which pixels to ignore.",
+      cxxopts::value<std::string>())
     ( "v,active-attribute",
       "Choose the active attribute between mean, median and count when saving "
       "a composite color (all-frames is false). "

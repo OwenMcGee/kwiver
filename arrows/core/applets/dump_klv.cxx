@@ -51,7 +51,7 @@ add_command_options()
      "This program displays the KLV metadata packets that are embedded "
      "in a video file."
                                 ) );
-  m_cmd_options->positional_help( "\n  video-file  - name of video file." );
+  m_cmd_options->positional_help( "\n  video-file  - Name of input video file." );
 
   m_cmd_options->add_options()
     ( "h,help", "Display applet usage" )

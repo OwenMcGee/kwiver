@@ -607,11 +607,15 @@ add_command_options()
     "Output a configuration. This may be seeded with a "
     "configuration file from -c/--config.",
     cxxopts::value<std::string>() )
-  ( "v,video", "Input video", cxxopts::value<std::string>() )
-  ( "t,tracks", "Input tracks", cxxopts::value<std::string>() )
-  ( "k,camera", "Output directory for cameras", cxxopts::value<std::string>() )
-  ( "l,landmarks", "Output landmarks file", cxxopts::value<std::string>() )
-  ( "g,geo-origin", "Output geographic origin file", cxxopts::value<std::string>())
+  ( "v,video-file", "Name of input video file.", cxxopts::value<std::string>() )
+  ( "t,tracks-file", "Name of input tracks file.",
+    cxxopts::value<std::string>()->default_value( "results/tracks.txt" ) )
+  ( "k,cameras-dir", "Name of output cameras directory",
+    cxxopts::value<std::string>()->default_value( "results/krtd" ) )
+  ( "l,landmarks-file", "Name of output landmarks file",
+    cxxopts::value<std::string>()->default_value( "results/landmarks.ply" ) )
+  ( "g,geo-origin-file", "Name of output geographic origin file",
+    cxxopts::value<std::string>()->default_value( "results/geo_origin.txt" ) )
   ;
 
   //If we want to remove tracks reading from the config, we should then add this

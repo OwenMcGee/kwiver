@@ -28,20 +28,20 @@ add_command_options()
 {
   m_cmd_options->custom_help( wrap_text( "[options] config-file\n"
     "This program assists in debugging config loading problems. It loads a "
-    "configuration and displays the contents or displays the search path."
-    "Additional paths can be specified in \"KWIVER_CONFIG_PATH\" environment variable"
-    "or on the command line with the -I or --path options."
-    "If -ds is specified, the detailed search paths that apply to the application are"
+    "configuration and displays the contents or displays the search path. "
+    "Additional paths can be specified in \"KWIVER_CONFIG_PATH\" environment variable "
+    "or on the command line with the -I or --path options. "
+    "If -ds is specified, the detailed search paths that apply to the application are "
     "displayed only, otherwise the config file is loaded."
     "\n\n"
-    "The option -dc only has effect when a config file is specified and causes a"
+    "The option -dc only has effect when a config file is specified and causes a "
     "detailed output of the config entries."
     "\n\n"
-    "If -I or --path are specified, then the config file is only searched for using"
+    "If -I or --path are specified, then the config file is only searched for using "
     "the specified path. The application name based paths are not used."
                                 ) );
 
- m_cmd_options->positional_help( "\n  config-file  - name of configuration file." );
+ m_cmd_options->positional_help( "\n  config-file  - Name of configuration file." );
 
   m_cmd_options->add_options()
     ( "h,help", "Display applet usage" )

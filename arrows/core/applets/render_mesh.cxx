@@ -99,18 +99,23 @@ add_command_options()
        "Usage: kwiver " + applet_name() + " [options] mesh camera image"
           ) );
 
-  m_cmd_options->positional_help( "\n   mesh - Mesh file name.\n"
-                                  "   camera - camera file name.\n"
-                                  "   output - Output image file name");
+  m_cmd_options->positional_help( "\n   mesh    - Mesh file name."
+                                  "\n   camera  - Camera file name."
+                                  "\n   output  - Output image file name"
+  );
 
   m_cmd_options->add_options()
-    ( "h,help",        "Display usage information" )
-    ( "c",             "Configuration file for tool" )
-    ( "output-config", "Dump configuration for tool", cxxopts::value<std::string>() )
-    ( "x",             "Output image width", cxxopts::value<int>()->default_value( "1920" ) )
-    ( "y",             "Output image height", cxxopts::value<int>()->default_value( "1080" ) )
-    ( "height-map",    "Render a height map instead of a depth map" )
-    ( "byte",          "Render as a byte image with scaled range" )
+    ( "h,help",          "Display applet usage" )
+    ( "c,config",        "Configuration file for tool",
+      cxxopts::value<std::string>() )
+    ( "o,output-config", "Dump configuration for tool",
+      cxxopts::value<std::string>() )
+    ( "x",               "Output image width",
+      cxxopts::value<int>()->default_value( "1920" ) )
+    ( "y",               "Output image height",
+      cxxopts::value<int>()->default_value( "1080" ) )
+    ( "height-map",      "Render a height map instead of a depth map" )
+    ( "byte",            "Render as a byte image with scaled range" )
 
     // positional parameters
     ( "mesh-file",    "Mesh file name", cxxopts::value<std::string>() )

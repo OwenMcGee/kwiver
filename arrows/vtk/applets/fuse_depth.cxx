@@ -579,10 +579,11 @@ add_command_options()
   m_cmd_options->custom_help( wrap_text( "[options]\n" ) );
 
   m_cmd_options->positional_help(
-    "\n  input-cameras-dir - name of the directory containing the krtd camera files"
+    "\n  cameras-dir  - Name of the directory containing the krtd camera files "
     "(default: " + d->input_cameras_directory + ")"
-    "\n  input-depths-dir - name of the directory to read depth maps from "
-    "(default: " + d->input_depths_directory + ")");
+    "\n  depths-dir   - Name of the directory to read depth maps from "
+    "(default: " + d->input_depths_directory + ")"
+  );
 
   m_cmd_options->add_options()
     ( "h,help",     "Display applet usage" )
@@ -591,28 +592,26 @@ add_command_options()
       "Output a configuration. This may be seeded with a "
       "configuration file from -c/--config.",
       cxxopts::value<std::string>() )
-    ( "l,input-landmarks-file", "3D sparse features (default: " +
-      d->input_landmarks_file + ")", cxxopts::value<std::string>() )
-    ( "g,input-geo-origin-file", "Input geographic origin file (default: " +
-      d->input_geo_origin_file + ")", cxxopts::value<std::string>() )
-    ( "m,output-mesh-file", "Write out isocontour mesh to file (default: " +
-      d->output_mesh_file + ")",
-      cxxopts::value<std::string>())
-    ( "v,output-volume-file",
-      "Write out integrated integrated depth data to file (default: " +
-      d->output_volume_file +")",
-      cxxopts::value<std::string>())
+    ( "l,landmarks-file", "3D sparse features",
+      cxxopts::value<std::string>()->default_value( d->input_landmarks_file ) )
+    ( "g,geo-origin-file", "Name of input geographic origin file",
+      cxxopts::value<std::string>()->default_value( d->input_geo_origin_file ) )
+    ( "m,mesh-file", "Name of output isocontour mesh file",
+      cxxopts::value<std::string>()->default_value( d->output_mesh_file ) )
+    ( "v,volume-file",
+      "Name of output integrated depth data file",
+      cxxopts::value<std::string>()->default_value( d->output_volume_file ) )
     ( "t,isosurface-threshold", "isosurface extraction threshold (default: " +
       std::to_string(d->isosurface_threshold) + ")." , cxxopts::value<double>() )
 
     // positional parameters
-    ( "input-cameras-dir", "Camera location data", cxxopts::value<std::string>() )
-    ( "input-depths-dir", "Output directory for depth maps",
+    ( "cameras-dir", "Camera location data", cxxopts::value<std::string>() )
+    ( "depths-dir", "Output directory for depth maps",
       cxxopts::value<std::string>())
     ;
 
-    m_cmd_options->parse_positional({ "input-cameras-dir",
-                                      "input-depths-dir"});
+    m_cmd_options->parse_positional({ "cameras-dir",
+                                      "depths-dir"});
 }
 
 // ============================================================================

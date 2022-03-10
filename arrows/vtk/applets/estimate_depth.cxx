@@ -100,7 +100,7 @@ public:
   : has_mask(false),
     input_cameras_directory("results/krtd"),
     input_landmarks_file("results/landmarks.ply"),
-    output_depths_directory("results/depth")
+    output_depths_directory("results/depths")
   {}
 
   bool has_mask;
@@ -633,11 +633,12 @@ add_command_options()
   m_cmd_options->custom_help( wrap_text( "[options]\n" ) );
 
   m_cmd_options->positional_help(
-    "\n  video-source - name of input video file."
-    "\n  input-cameras-dir - name of the directory containing the krtd camera files"
+    "\n  video-file   - Name of input video file"
+    "\n  cameras-dir  - Name of input krtd camera files directory "
     "(default: " + d->input_cameras_directory + ")"
-    "\n  output-depths-dir - name of the directory to write depth maps to "
-    "(default: " + d->output_depths_directory + ")" );
+    "\n  depths-dir   - Name of output depth maps directory "
+    "(default: " + d->output_depths_directory + ")"
+  );
 
   m_cmd_options->add_options()
     ( "h,help",     "Display applet usage" )
@@ -648,17 +649,18 @@ add_command_options()
       cxxopts::value<std::string>() )
     ( "f,frame",    "The frame number to compute depth for.",
       cxxopts::value<int>() )
-    ("l,input-landmarks-file", "3D sparse features", cxxopts::value<std::string>())
+    ("l,landmarks-file", "3D sparse features",
+      cxxopts::value<std::string>()->default_value( "results/landmarks.ply" ) )
     ("m,mask-source", "Masks of unusable regions", cxxopts::value<std::string>())
 
     // positional parameters
-    ("video-source", "Video input file", cxxopts::value<std::string>())
-    ("input-cameras-dir", "Camera location data", cxxopts::value<std::string>())
-    ("output-depths-dir", "Output directory for depth maps",
+    ("video-file", "Video input file", cxxopts::value<std::string>())
+    ("cameras-dir", "Camera location data", cxxopts::value<std::string>())
+    ("depths-dir", "Output directory for depth maps",
      cxxopts::value<std::string>())
     ;
 
-    m_cmd_options->parse_positional({ "video-source", "input-cameras-dir", "output-depths-dir" });
+    m_cmd_options->parse_positional({ "video-file", "cameras-dir", "depths-dir" });
 }
 
 // ============================================================================
