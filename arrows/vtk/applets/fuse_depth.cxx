@@ -601,8 +601,8 @@ add_command_options()
     ( "v,volume-file",
       "Name of output integrated depth data file",
       cxxopts::value<std::string>()->default_value( d->output_volume_file ) )
-    ( "t,isosurface-threshold", "isosurface extraction threshold (default: " +
-      std::to_string(d->isosurface_threshold) + ")." , cxxopts::value<double>() )
+    ( "t,isosurface-threshold", "Isosurface extraction threshold",
+      cxxopts::value<double>()->default_value( std::to_string( d->isosurface_threshold ) ) )
 
     // positional parameters
     ( "cameras-dir", "Camera location data", cxxopts::value<std::string>() )
