@@ -605,10 +605,10 @@ add_command_options()
   ( "c,config",   "Configuration file for tool", cxxopts::value<std::string>() )
   ( "o,output-config",
     "Output a configuration. This may be seeded with a "
-    "configuration file from -c/--config.",
+    "configuration file from -c/--config",
     cxxopts::value<std::string>() )
-  ( "v,video-file", "Name of input video file.", cxxopts::value<std::string>() )
-  ( "t,tracks-file", "Name of input tracks file.",
+  ( "v,video-file", "Name of input video file", cxxopts::value<std::string>() )
+  ( "t,tracks-file", "Name of input tracks file",
     cxxopts::value<std::string>()->default_value( "results/tracks.txt" ) )
   ( "k,cameras-dir", "Name of output cameras directory",
     cxxopts::value<std::string>()->default_value( "results/krtd" ) )

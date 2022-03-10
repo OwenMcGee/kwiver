@@ -621,26 +621,26 @@ add_command_options()
       cxxopts::value<std::string>() )
     ( "o,output-config",
       "Output a configuration. This may be seeded with a "
-      "configuration file from -c/--config.",
+      "configuration file from -c/--config",
       cxxopts::value<std::string>() )
     ( "a,all-frames",
       "Compute average color or save each frame color",
       cxxopts::value<bool>()->default_value("false") )
     ( "f,frame",
       "Frame index to use for coloring. "
-      "If -1 use an average color for all frames.",
+      "If -1 use an average color for all frames",
       cxxopts::value<int>()->default_value( "-1"))
     ( "g,geo-origin-file", "Name of input geographic origin file.",
       cxxopts::value<std::string>()->default_value( d->input_geo_origin_file ) )
     ( "m,mask-file",
       "An input mask video or list of mask images to indicate "
-      "which pixels to ignore.",
+      "which pixels to ignore",
       cxxopts::value<std::string>())
     ( "v,active-attribute",
       "Choose the active attribute between mean, median and count when saving "
       "a composite color (all-frames is false). "
       "For the VTP format, all attributes are saved, for PLY only the "
-      "active attribute is saved.",
+      "active attribute is saved",
       cxxopts::value<std::string>())
     ( "s,frame-sampling",
       "Use for coloring only frames that satisfy frame mod sampling == 0",

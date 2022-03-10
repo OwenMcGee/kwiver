@@ -41,7 +41,7 @@ add_command_options()
     "the specified path. The application name based paths are not used."
                                 ) );
 
- m_cmd_options->positional_help( "\n  config-file  - Name of configuration file." );
+ m_cmd_options->positional_help( "\n  config-file  - Name of configuration file" );
 
   m_cmd_options->add_options()
     ( "h,help", "Display applet usage" )
@@ -50,7 +50,7 @@ add_command_options()
     ( "I,path", "Add directory to config search path", cxxopts::value<std::vector<std::string>>() )
     ( "a,application", "Application name", cxxopts::value<std::string>() )
     ( "v,version", "Application version", cxxopts::value<std::string>() )
-    ( "p,prefix", "Non-standard installation prefix. (e.g. /opt/kitware)", cxxopts::value<std::string>() )
+    ( "p,prefix", "Non-standard installation prefix (e.g. /opt/kitware)", cxxopts::value<std::string>() )
 
     // positional parameters
     ( "config-file", "configuration file", cxxopts::value<std::string>())

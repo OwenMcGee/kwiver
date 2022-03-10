@@ -598,7 +598,7 @@ add_command_options()
     "This program tracks feature point through a video or list of images and "
     "produces a track file and optional homography sequence.") );
 
-  m_cmd_options->positional_help("\n  video-file   - Name of input video file."
+  m_cmd_options->positional_help("\n  video-file   - Name of input video file"
                                  "\n  tracks-file  - Name of output tracks file "
                                  "(default: " + d->track_file + ")"
   );
@@ -608,15 +608,15 @@ add_command_options()
     ( "c,config",   "Configuration file for tool", cxxopts::value<std::string>() )
     ( "o,output-config",
       "Output a configuration. This may be seeded with a "
-      "configuration file from -c/--config.",
+      "configuration file from -c/--config",
       cxxopts::value<std::string>() )
     ( "g,homography-file",
       "An output homography file containing a sequence of homographies "
-      "aligning one frame to another estimated from the tracks.",
+      "aligning one frame to another estimated from the tracks",
       cxxopts::value<std::string>())
     ( "m,mask-file",
       "An input mask video or list of mask images to indicate "
-      "which pixels to ignore.",
+      "which pixels to ignore",
       cxxopts::value<std::string>())
 
     // positional parameters

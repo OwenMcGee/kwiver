@@ -51,36 +51,35 @@ pipe_to_dot
 
   m_cmd_options->add_options()( "h,help", "Display applet usage" );
 
-  m_cmd_options->add_options( "pipe" )(
-    "c,config",
-    "File containing supplemental configuration entries. Can occur multiple times.",
-    cxxopts::value< std::vector< std::string > >() )(
-    "s,setting",
-    "Additional configuration entries in the form of VAR=VALUE. "
-    "Can occur multiple times",
-    cxxopts::value< std::vector< std::string > >() )(
-    "I,include",
-    "A directory to be added to configuration include path. Can occur multiple times.",
-    cxxopts
-    ::value< std::vector< std::string > >() )(
-    "setup",
-    "Setup pipeline before rendering" );
+  m_cmd_options->add_options( "input" )
+    ( "p,pipe-file", "Input pipeline file file",
+      cxxopts::value< std::string >() )
+    ( "C,cluster", "Cluster file to export",
+      cxxopts::value< std::string >() )
+    ( "T,cluster-type", "Cluster type to export",
+      cxxopts::value< std::string >() );
 
-  m_cmd_options->add_options( "input" )(
-    "p,pipe-file", "Input pipeline file file",
-    cxxopts::value< std::string >() )(
-    "C,cluster", "Cluster file to export",
-    cxxopts::value< std::string >() )(
-    "T,cluster-type", "Cluster type to export",
-    cxxopts::value< std::string >() );
+  m_cmd_options->add_options( "output" )
+    ( "n,name", "Name of the graph",
+      cxxopts::value< std::string >()->default_value( "unnamed" ) )
+    ( "o,output", "Name of output file or '-' for stdout",
+      cxxopts::value< std::string >()->default_value( "-" ) )
+    ( "P,link-prefix", "Prefix for links when formatting for sphinx",
+      cxxopts::value< std::string >() );
 
-  m_cmd_options->add_options( "output" )(
-    "n,name", "Name of the graph",
-    cxxopts::value< std::string >()->default_value( "unnamed" ) )(
-    "o,output", "Name of output file or '-' for stdout.",
-    cxxopts::value< std::string >()->default_value( "-" ) )(
-    "P,link-prefix", "Prefix for links when formatting for sphinx",
-    cxxopts::value< std::string >() );
+  m_cmd_options->add_options( "pipe" )
+    ( "c,config",
+      "File containing supplemental configuration entries. Can occur multiple times",
+      cxxopts::value< std::vector< std::string > >() )
+    ( "s,setting",
+      "Additional configuration entries in the form of VAR=VALUE. "
+      "Can occur multiple times",
+      cxxopts::value< std::vector< std::string > >() )
+    ( "I,include",
+      "A directory to be added to configuration include path. Can occur multiple times",
+      cxxopts::value< std::vector< std::string > >() )
+    ( "setup",
+      "Setup pipeline before rendering" );
 }
 
 // ----------------------------------------------------------------------------

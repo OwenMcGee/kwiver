@@ -645,7 +645,7 @@ add_command_options()
     ( "c,config",   "Configuration file for tool", cxxopts::value<std::string>() )
     ( "o,output-config",
       "Output a configuration. This may be seeded with a "
-      "configuration file from -c/--config.",
+      "configuration file from -c/--config",
       cxxopts::value<std::string>() )
     ( "f,frame",    "The frame number to compute depth for.",
       cxxopts::value<int>() )

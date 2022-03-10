@@ -93,14 +93,12 @@ void
 render_mesh::
 add_command_options()
 {
-  m_cmd_options->custom_help( wrap_text(
-       "This tool renders a mesh into a depth or height image\n"
-       "\n"
-       "Usage: kwiver " + applet_name() + " [options] mesh camera image"
-          ) );
+  m_cmd_options->custom_help( wrap_text( "[options] mesh camera image\n"
+           "This tool renders a mesh into a depth or height image."
+                                ));
 
-  m_cmd_options->positional_help( "\n   mesh    - Mesh file name."
-                                  "\n   camera  - Camera file name."
+  m_cmd_options->positional_help( "\n   mesh    - Mesh file name"
+                                  "\n   camera  - Camera file name"
                                   "\n   output  - Output image file name"
   );
 
@@ -110,9 +108,9 @@ add_command_options()
       cxxopts::value<std::string>() )
     ( "o,output-config", "Dump configuration for tool",
       cxxopts::value<std::string>() )
-    ( "x",               "Output image width",
+    ( "x,width",         "Output image width",
       cxxopts::value<int>()->default_value( "1920" ) )
-    ( "y",               "Output image height",
+    ( "y,height",        "Output image height",
       cxxopts::value<int>()->default_value( "1080" ) )
     ( "height-map",      "Render a height map instead of a depth map" )
     ( "byte",            "Render as a byte image with scaled range" )

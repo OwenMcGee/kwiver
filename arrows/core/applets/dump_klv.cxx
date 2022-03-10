@@ -51,7 +51,7 @@ add_command_options()
      "This program displays the KLV metadata packets that are embedded "
      "in a video file."
                                 ) );
-  m_cmd_options->positional_help( "\n  video-file  - Name of input video file." );
+  m_cmd_options->positional_help( "\n  video-file  - Name of input video file" );
 
   m_cmd_options->add_options()
     ( "h,help", "Display applet usage" )
@@ -61,15 +61,15 @@ add_command_options()
       "The file is structured as an array of frames where each frame contains an array "
       "of metadata packets associated with that frame. Each packet is an "
       "array of metadata fields. Alternatively, the configuration file, "
-      "dump_klv.conf, can be updated to use CSV instead.",
+      "dump_klv.conf, can be updated to use CSV instead",
       cxxopts::value< std::string >() )
-    ( "f,frames", "Dump frames into the given image format.",
+    ( "f,frames", "Dump frames into the given image format",
       cxxopts::value< std::string >(), "extension" )
     ( "frames-dir", "Directory in which to dump frames. "
-      "Defaults to current directory.",
+      "Defaults to current directory",
       cxxopts::value< std::string >(), "path" )
     ( "d,detail", "Display a detailed description of the metadata" )
-    ( "q,quiet", "Do not show metadata. Overrides -d/--detail." )
+    ( "q,quiet", "Do not show metadata. Overrides -d/--detail" )
 
     // positional parameters
     ( "video-file", "Video input file", cxxopts::value< std::string >() )
