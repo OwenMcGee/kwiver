@@ -112,8 +112,8 @@ add_command_options()
       cxxopts::value<int>()->default_value( "1920" ) )
     ( "y,height",        "Output image height",
       cxxopts::value<int>()->default_value( "1080" ) )
-    ( "height-map",      "Render a height map instead of a depth map" )
-    ( "byte",            "Render as a byte image with scaled range" )
+    ( "m,height-map",      "Render a height map instead of a depth map" )
+    ( "b,byte",            "Render as a byte image with scaled range" )
 
     // positional parameters
     ( "mesh-file",    "Mesh file name", cxxopts::value<std::string>() )

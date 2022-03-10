@@ -65,7 +65,7 @@ add_command_options()
       cxxopts::value< std::string >() )
     ( "f,frames", "Dump frames into the given image format",
       cxxopts::value< std::string >(), "extension" )
-    ( "frames-dir", "Directory in which to dump frames. "
+    ( "p,frames-dir", "Directory in which to dump frames. "
       "Defaults to current directory",
       cxxopts::value< std::string >(), "path" )
     ( "d,detail", "Display a detailed description of the metadata" )

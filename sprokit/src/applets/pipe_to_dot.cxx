@@ -78,7 +78,7 @@ pipe_to_dot
     ( "I,include",
       "A directory to be added to configuration include path. Can occur multiple times",
       cxxopts::value< std::vector< std::string > >() )
-    ( "setup",
+    ( "S,setup",
       "Setup pipeline before rendering" );
 }
 
