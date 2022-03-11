@@ -600,34 +600,34 @@ add_command_options()
     "a list of camera files stored in a directory. A mesh colored with "
     "the average color or with a color for a particular camera is produced.") );
 
-  m_cmd_options->positional_help("\n  input-mesh  - input mesh file."
-                                 "\n  video-file  - input video file."
-                                 "\n  cameras-dir  - input camera directory."
-                                 "\n  output-mesh - output mesh file."
+  m_cmd_options->positional_help("\n  input-mesh   - Input mesh file."
+                                 "\n  video-file   - Input video file."
+                                 "\n  cameras-dir  - Input camera directory."
+                                 "\n  output-mesh  - Output mesh file."
   );
 
   m_cmd_options->add_options()
-    ( "a,all-frames",
-      "Compute average color or save each frame color",
-      cxxopts::value<bool>()->default_value("false") )
+    ( "h,help",     "Display applet usage" )
     ( "c,config",
       "Configuration file for tool",
       cxxopts::value<std::string>() )
+    ( "o,output-config",
+      "Output a configuration. This may be seeded with a "
+      "configuration file from -c/--config.",
+      cxxopts::value<std::string>() )
+    ( "a,all-frames",
+      "Compute average color or save each frame color",
+      cxxopts::value<bool>()->default_value("false") )
     ( "f,frame",
       "Frame index to use for coloring. "
       "If -1 use an average color for all frames.",
       cxxopts::value<int>()->default_value( "-1"))
     ( "g,input-geo-origin-file", "Input geographic origin file.",
       cxxopts::value<std::string>() )
-    ( "h,help",     "Display applet usage" )
     ( "m,mask-file",
       "An input mask video or list of mask images to indicate "
       "which pixels to ignore.",
       cxxopts::value<std::string>())
-    ( "o,output-config",
-      "Output a configuration. This may be seeded with a "
-      "configuration file from -c/--config.",
-      cxxopts::value<std::string>() )
     ( "v,active-attribute",
       "Choose the active attribute between mean, median and count when saving "
       "a composite color (all-frames is false). "
@@ -639,10 +639,10 @@ add_command_options()
       cxxopts::value<int>()->default_value( "1"))
 
     // positional parameters
-    ("input-mesh", "Mesh input file", cxxopts::value<std::string>())
-    ("video-file", "Video input file", cxxopts::value<std::string>())
-    ("cameras-dir", "Camera input directory", cxxopts::value<std::string>())
-    ("output-mesh", "Mesh output file", cxxopts::value<std::string>())
+    ( "input-mesh", "Mesh input file", cxxopts::value<std::string>() )
+    ( "video-file", "Video input file", cxxopts::value<std::string>() )
+    ( "cameras-dir", "Camera input directory", cxxopts::value<std::string>() )
+    ( "output-mesh", "Mesh output file", cxxopts::value<std::string>() )
     ;
 
   m_cmd_options->parse_positional({

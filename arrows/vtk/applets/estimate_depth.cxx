@@ -630,13 +630,13 @@ void
 estimate_depth::
 add_command_options()
 {
-  m_cmd_options->custom_help( wrap_text( "[options]\n" ) );
+  m_cmd_options->custom_help( wrap_text( "[options]" ) );
 
   m_cmd_options->positional_help(
-    "\n  video-source - name of input video file."
-    "\n  input-cameras-dir - name of the directory containing the krtd camera files"
+    "\n  video-source       - Name of input video file."
+    "\n  input-cameras-dir  - Name of the directory containing the krtd camera files"
     "(default: " + d->input_cameras_directory + ")"
-    "\n  output-depths-dir - name of the directory to write depth maps to "
+    "\n  output-depths-dir  - Name of the directory to write depth maps to "
     "(default: " + d->output_depths_directory + ")" );
 
   m_cmd_options->add_options()

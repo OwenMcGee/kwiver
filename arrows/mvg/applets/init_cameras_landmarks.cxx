@@ -598,21 +598,21 @@ void
 init_cameras_landmarks::
 add_command_options()
 {
-  m_cmd_options->custom_help( wrap_text( "[options]\n" ) );
+  m_cmd_options->custom_help( wrap_text( "[options]" ) );
 
   m_cmd_options->add_options()
-  ( "h,help",     "Display applet usage" )
-  ( "c,config",   "Configuration file for tool", cxxopts::value<std::string>() )
-  ( "o,output-config",
-    "Output a configuration. This may be seeded with a "
-    "configuration file from -c/--config.",
-    cxxopts::value<std::string>() )
-  ( "v,video", "Input video", cxxopts::value<std::string>() )
-  ( "t,tracks", "Input tracks", cxxopts::value<std::string>() )
-  ( "k,camera", "Output directory for cameras", cxxopts::value<std::string>() )
-  ( "l,landmarks", "Output landmarks file", cxxopts::value<std::string>() )
-  ( "g,geo-origin", "Output geographic origin file", cxxopts::value<std::string>())
-  ;
+    ( "h,help",     "Display applet usage" )
+    ( "c,config",   "Configuration file for tool", cxxopts::value<std::string>() )
+    ( "o,output-config",
+      "Output a configuration. This may be seeded with a "
+      "configuration file from -c/--config.",
+      cxxopts::value<std::string>() )
+    ( "v,video", "Input video", cxxopts::value<std::string>() )
+    ( "t,tracks", "Input tracks", cxxopts::value<std::string>() )
+    ( "k,camera", "Output directory for cameras", cxxopts::value<std::string>() )
+    ( "l,landmarks", "Output landmarks file", cxxopts::value<std::string>() )
+    ( "g,geo-origin", "Output geographic origin file", cxxopts::value<std::string>())
+    ;
 
   //If we want to remove tracks reading from the config, we should then add this
   //m_cmd_options->parse_positional("tracks");

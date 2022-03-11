@@ -93,15 +93,13 @@ void
 render_mesh::
 add_command_options()
 {
-  m_cmd_options->custom_help( wrap_text(
-       "This tool renders a mesh into a depth or height image\n"
-       "\n"
-       "Usage: kwiver " + applet_name() + " [options] mesh camera image"
-          ) );
+  m_cmd_options->custom_help( wrap_text( "[options] mesh camera image\n"
+           "This tool renders a mesh into a depth or height image."
+                                ));
 
-  m_cmd_options->positional_help( "\n   mesh - Mesh file name.\n"
-                                  "   camera - camera file name.\n"
-                                  "   output - Output image file name");
+  m_cmd_options->positional_help( "\n  mesh    - Mesh file name."
+                                  "\n  camera  - Camera file name."
+                                  "\n  output  - Output image file name");
 
   m_cmd_options->add_options()
     ( "h,help",        "Display usage information" )

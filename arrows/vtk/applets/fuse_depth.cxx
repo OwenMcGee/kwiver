@@ -576,12 +576,12 @@ void
 fuse_depth::
 add_command_options()
 {
-  m_cmd_options->custom_help( wrap_text( "[options]\n" ) );
+  m_cmd_options->custom_help( wrap_text( "[options]" ) );
 
   m_cmd_options->positional_help(
-    "\n  input-cameras-dir - name of the directory containing the krtd camera files"
+    "\n  input-cameras-dir  - Name of the directory containing the krtd camera files"
     "(default: " + d->input_cameras_directory + ")"
-    "\n  input-depths-dir - name of the directory to read depth maps from "
+    "\n  input-depths-dir   - Name of the directory to read depth maps from "
     "(default: " + d->input_depths_directory + ")");
 
   m_cmd_options->add_options()
@@ -599,7 +599,7 @@ add_command_options()
       d->output_mesh_file + ")",
       cxxopts::value<std::string>())
     ( "v,output-volume-file",
-      "Write out integrated integrated depth data to file (default: " +
+      "Write out integrated depth data to file (default: " +
       d->output_volume_file +")",
       cxxopts::value<std::string>())
     ( "t,isosurface-threshold", "isosurface extraction threshold (default: " +
