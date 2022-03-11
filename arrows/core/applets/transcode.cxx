@@ -32,13 +32,13 @@ transcode_applet
 {
   m_cmd_options->add_options()                   //
     ( "h,help",   "Display applet usage",
-    ::cxxopts::value< bool >() )                 //
+    cxxopts::value< bool >() )                 //
     ( "c,config", "Configuration file for tool",
-    ::cxxopts::value< std::string >() )  //
+    cxxopts::value< std::string >() )  //
     ( "v,video-file",  "Name of input video file",
-    ::cxxopts::value< std::string >() )  //
+    cxxopts::value< std::string >() )  //
     ( "o,output", "Name of output video file",
-    ::cxxopts::value< std::string >() );
+    cxxopts::value< std::string >() );
 }
 
 // ----------------------------------------------------------------------------

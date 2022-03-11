@@ -601,22 +601,22 @@ add_command_options()
   m_cmd_options->custom_help( wrap_text( "[options]\n" ) );
 
   m_cmd_options->add_options()
-  ( "h,help",     "Display applet usage" )
-  ( "c,config",   "Configuration file for tool", cxxopts::value<std::string>() )
-  ( "o,output-config",
-    "Output a configuration. This may be seeded with a "
-    "configuration file from -c/--config",
-    cxxopts::value<std::string>() )
-  ( "v,video-file", "Name of input video file", cxxopts::value<std::string>() )
-  ( "t,tracks-file", "Name of input tracks file",
-    cxxopts::value<std::string>()->default_value( "results/tracks.txt" ) )
-  ( "k,cameras-dir", "Name of output cameras directory",
-    cxxopts::value<std::string>()->default_value( "results/krtd" ) )
-  ( "l,landmarks-file", "Name of output landmarks file",
-    cxxopts::value<std::string>()->default_value( "results/landmarks.ply" ) )
-  ( "g,geo-origin-file", "Name of output geographic origin file",
-    cxxopts::value<std::string>()->default_value( "results/geo_origin.txt" ) )
-  ;
+    ( "h,help",     "Display applet usage" )
+    ( "c,config",   "Configuration file for tool", cxxopts::value<std::string>() )
+    ( "o,output-config",
+      "Output a configuration. This may be seeded with a "
+      "configuration file from -c/--config",
+      cxxopts::value<std::string>() )
+    ( "v,video-file", "Name of input video file", cxxopts::value<std::string>() )
+    ( "t,tracks-file", "Name of input tracks file",
+      cxxopts::value<std::string>()->default_value( "results/tracks.txt" ) )
+    ( "k,cameras-dir", "Name of output cameras directory",
+      cxxopts::value<std::string>()->default_value( "results/krtd" ) )
+    ( "l,landmarks-file", "Name of output landmarks file",
+      cxxopts::value<std::string>()->default_value( "results/landmarks.ply" ) )
+    ( "g,geo-origin-file", "Name of output geographic origin file",
+      cxxopts::value<std::string>()->default_value( "results/geo_origin.txt" ) )
+    ;
 
   //If we want to remove tracks reading from the config, we should then add this
   //m_cmd_options->parse_positional("tracks");
