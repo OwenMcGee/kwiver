@@ -138,6 +138,7 @@ set( vital_public_headers
   types/match_set.h
   types/matrix.h
   types/mesh.h
+  types/mesh_container.h
   types/metadata.h
   types/metadata_map.h
   types/metadata_tags.h
